@@ -14,7 +14,7 @@ const Referral = () => {
     if (!user?._id) return;
     
     setLoading(true);
-    const url = `https://startraders-fullstack-9ayr.onrender.com/api/user/referral-overview/${user._id}`;
+    const url = `https://qxtrand.onrender.com/api/api/user/referral-overview/${user._id}`;
     console.log('[Referral] Fetching:', url);
     
     axios.get(url, {

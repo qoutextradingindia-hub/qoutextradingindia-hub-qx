@@ -74,7 +74,7 @@ const Dashboard = () => {
     
     // Available Funds (get user balance from admin API)
     axios
-      .get(`https://startraders-fullstack-9ayr.onrender.com/api/admin/user/${user._id}`)
+      .get(`https://qxtrand.onrender.com/api/api/admin/user/${user._id}`)
       .then(res => {
         if (res.data.success && res.data.user && typeof res.data.user.balance === 'number') {
           setAvailableFunds(res.data.user.balance);
@@ -86,7 +86,7 @@ const Dashboard = () => {
       
     // Referral Income
     axios
-      .get(`https://startraders-fullstack-9ayr.onrender.com/api/user/referral-income/${user._id}`)
+      .get(`https://qxtrand.onrender.com/api/api/user/referral-income/${user._id}`)
       .then(res => {
         if (res.data.success && typeof res.data.totalReferralIncome === 'string') {
           setReferralIncome(parseFloat(res.data.totalReferralIncome));
@@ -100,7 +100,7 @@ const Dashboard = () => {
 
     // Referral Trading Income
     axios
-      .get(`https://startraders-fullstack-9ayr.onrender.com/api/user/referral-trading-income/${user._id}`)
+      .get(`https://qxtrand.onrender.com/api/api/user/referral-trading-income/${user._id}`)
       .then(res => {
         if (res.data.success && typeof res.data.totalIncome === 'number') {
           setReferralTradingIncome(res.data.totalIncome);
@@ -112,7 +112,7 @@ const Dashboard = () => {
 
     // Support Settings
     axios
-      .get(`https://startraders-fullstack-9ayr.onrender.com/api/user/support-settings`)
+      .get(`https://qxtrand.onrender.com/api/api/user/support-settings`)
       .then(res => {
         if (res.data.success) {
           setSupportSettings({

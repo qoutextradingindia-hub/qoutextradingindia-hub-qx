@@ -11,7 +11,7 @@ const UserDetail = () => {
   // Ban user handler
   const handleBanUser = () => {
     if(window.confirm('Are you sure you want to ban this user?')) {
-      axios.post(`https://startraders-fullstack-9ayr.onrender.com/api/admin/ban-user`, { userId: id })
+      axios.post(`https://qxtrand.onrender.com/api/api/admin/ban-user`, { userId: id })
         .then(res => {
           if(res.data.success) {
             alert('User banned successfully');
@@ -27,7 +27,7 @@ const UserDetail = () => {
   // Delete user handler
   const handleDeleteUser = () => {
     if(window.confirm('Are you sure you want to delete this user?')) {
-      axios.delete(`https://startraders-fullstack-9ayr.onrender.com/api/admin/delete-user/${id}`)
+      axios.delete(`https://qxtrand.onrender.com/api/api/admin/delete-user/${id}`)
         .then(res => {
           if(res.data.success) {
             alert('User deleted successfully');
@@ -43,7 +43,7 @@ const UserDetail = () => {
   // Login as user handler
   const handleLoginAsUser = () => {
     // This should call an API to get a user session token, then redirect
-    axios.post(`https://startraders-fullstack-9ayr.onrender.com/api/admin/login-as-user`, { userId: id })
+    axios.post(`https://qxtrand.onrender.com/api/api/admin/login-as-user`, { userId: id })
       .then(res => {
         if(res.data.success && res.data.token && res.data.user) {
           // Save user and token, then redirect to user dashboard
@@ -62,7 +62,7 @@ const UserDetail = () => {
   const [type, setType] = useState('credit');
 
   useEffect(() => {
-    axios.get(`https://startraders-fullstack-9ayr.onrender.com/api/admin/user/${id}`)
+    axios.get(`https://qxtrand.onrender.com/api/api/admin/user/${id}`)
       .then((res) => {
         if (res.data.success) {
           setUser(res.data.user);
@@ -75,7 +75,7 @@ const UserDetail = () => {
 
   const handleBalanceUpdate = () => {
     if (!amount || isNaN(amount)) return alert("Enter valid amount");
-    axios.post(`https://startraders-fullstack-9ayr.onrender.com/api/admin/update-balance`, {
+    axios.post(`https://qxtrand.onrender.com/api/api/admin/update-balance`, {
       userId: id,
       amount: parseFloat(amount),
       type: type,

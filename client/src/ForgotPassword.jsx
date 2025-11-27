@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post('https://startraders-fullstack-9ayr.onrender.com/api/user/send-forgot-otp', { email });
+      const res = await axios.post('https://qxtrand.onrender.com/api/api/user/send-forgot-otp', { email });
       setMsg(res.data.message || 'OTP sent to your email');
       setStep(2);
       setTimer(60); // 1 minute timer
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
   const handleResendOtp = async () => {
     setResendLoading(true);
     try {
-      const res = await axios.post('https://startraders-fullstack-9ayr.onrender.com/api/user/send-forgot-otp', { email });
+      const res = await axios.post('https://qxtrand.onrender.com/api/api/user/send-forgot-otp', { email });
       setMsg(res.data.message || 'OTP resent to your email');
       setTimer(60);
     } catch (err) {
@@ -66,7 +66,7 @@ const ForgotPassword = () => {
     }
     setLoading(true);
     try {
-      const res = await axios.post('https://startraders-fullstack-9ayr.onrender.com/api/user/verify-forgot-otp', { email, otp });
+      const res = await axios.post('https://qxtrand.onrender.com/api/api/user/verify-forgot-otp', { email, otp });
       if (res.data.message === 'OTP Verified') {
         setOtpVerified(true);
         setMsg('OTP Verified. Please enter new password.');

@@ -12,7 +12,7 @@ const RewardIncome = () => {
       try {
         console.log('Fetching reward settings from API...');
         const timestamp = new Date().getTime();
-        const response = await axios.get(`https://startraders-fullstack-9ayr.onrender.com/api/admin/reward-settings?t=${timestamp}`, {
+        const response = await axios.get(`https://qxtrand.onrender.com/api/api/admin/reward-settings?t=${timestamp}`, {
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
             'Pragma': 'no-cache',

@@ -13,7 +13,7 @@ const Support = () => {
   useEffect(() => {
     // Fetch support settings from API
     axios
-      .get(`https://startraders-fullstack-9ayr.onrender.com/api/user/support-settings`)
+      .get(`https://qxtrand.onrender.com/api/api/user/support-settings`)
       .then(res => {
         if (res.data.success) {
           setSupportSettings({

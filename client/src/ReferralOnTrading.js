@@ -23,7 +23,7 @@ const ReferralOnTrading = () => {
       }
 
       console.log('Fetching referral trading income data...');
-      const response = await axios.get(`https://startraders-fullstack-9ayr.onrender.com/api/user/referral-trading-income/${user._id}`);
+      const response = await axios.get(`https://qxtrand.onrender.com/api/api/user/referral-trading-income/${user._id}`);
       
       if (response.data.success) {
         setTotalIncome(response.data.totalIncome || 0);
