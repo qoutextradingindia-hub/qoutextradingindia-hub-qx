@@ -23,8 +23,8 @@ const corsOptions = {
   origin: [
     'https://startraders-frontend.onrender.com',
     'https://qxtrand.onrender.com',
-    'http://localhost:3000',
-    'http://localhost:5000',
+    'http://https://qxtrand.onrender.com:3000',
+    'http://https://qxtrand.onrender.com:5000',
     'https://startraders-frontend.onrender.com/',
     // Allow any subdomain for testing
     /^https:\/\/.*\.onrender\.com$/
