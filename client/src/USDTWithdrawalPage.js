@@ -48,7 +48,7 @@ export default function USDTWithdrawalPage() {
     setOtpLoading(true);
     try {
       const user = JSON.parse(localStorage.getItem('user'));
-      const res = await axios.post('https://qxtrand.onrender.com/api/user/send-withdraw-otp', {
+      const res = await axios.post('https://qxtrand.onrender.com/api/user/withdrawal-otp/send-otp', {
         email: user.email
       });
       setOtpMsg(res.data.message || 'OTP sent to your email');
@@ -67,7 +67,7 @@ export default function USDTWithdrawalPage() {
     setOtpVerified(false);
     try {
       const user = JSON.parse(localStorage.getItem('user'));
-      const verifyRes = await axios.post('https://qxtrand.onrender.com/api/user/verify-withdraw-otp', {
+      const verifyRes = await axios.post('https://qxtrand.onrender.com/api/user/withdrawal-otp/verify-otp', {
         email: user.email,
         otp
       });
