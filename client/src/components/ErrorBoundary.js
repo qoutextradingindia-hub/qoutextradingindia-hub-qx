@@ -60,7 +60,7 @@ export const APIStatusChecker = () => {
   React.useEffect(() => {
     const checkAPI = async () => {
       try {
-        const response = await axios.get('https://qxtrand.onrender.com/api/api/ping');
+        const response = await axios.get('https://qxtrand.onrender.com/api/ping');
         setStatus('connected');
         setDetails(response.data);
       } catch (error) {

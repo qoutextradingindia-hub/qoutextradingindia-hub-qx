@@ -30,7 +30,7 @@ export default function Settings() {
   useEffect(() => {
     // Fetch support settings
     axios
-      .get(`https://qxtrand.onrender.com/api/api/user/support-settings`)
+      .get(`https://qxtrand.onrender.com/api/user/support-settings`)
       .then(res => {
         if (res.data.success) {
           setSupportSettings({
@@ -47,7 +47,7 @@ export default function Settings() {
 
     // Fetch reward settings
     axios
-      .get(`https://qxtrand.onrender.com/api/api/admin/reward-settings`, {
+      .get(`https://qxtrand.onrender.com/api/admin/reward-settings`, {
         timeout: 30000,
         headers: {
           'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ export default function Settings() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://qxtrand.onrender.com/api/api/admin/reward-settings`,
+        `https://qxtrand.onrender.com/api/admin/reward-settings`,
         {
           timeout: 30000,
           headers: {
@@ -131,7 +131,7 @@ export default function Settings() {
     
     try {
       const response = await axios.post(
-        `https://qxtrand.onrender.com/api/api/admin/support-settings`,
+        `https://qxtrand.onrender.com/api/admin/support-settings`,
         supportSettings
       );
       
@@ -161,7 +161,7 @@ export default function Settings() {
       console.log('Sending reward data:', sortedRewards);
         
       const response = await axios.post(
-        `https://qxtrand.onrender.com/api/api/admin/reward-settings`,
+        `https://qxtrand.onrender.com/api/admin/reward-settings`,
         { rewards: sortedRewards },
         {
           timeout: 30000, // 30 second timeout

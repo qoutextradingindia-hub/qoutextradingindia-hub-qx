@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://qxtrand.onrender.com/api', // <-- Updated to new backend URL
+      target: 'https://qxtrand.onrender.com', // <-- Updated to new backend URL
       changeOrigin: true,
     })
   );

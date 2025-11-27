@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Centralized API instance for all backend calls
 const API = axios.create({
-  baseURL: 'https://qxtrand.onrender.com/api/api',
+  baseURL: 'https://qxtrand.onrender.com/api',
   timeout: 30000, // 30 seconds timeout
   headers: {
     'Content-Type': 'application/json',

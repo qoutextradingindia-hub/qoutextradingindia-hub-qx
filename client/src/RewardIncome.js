@@ -23,7 +23,7 @@ const RewardIncome = () => {
     try {
       console.log('Fetching reward settings from API...');
       const timestamp = new Date().getTime();
-      const response = await axios.get(`https://qxtrand.onrender.com/api/api/admin/reward-settings?t=${timestamp}`, {
+      const response = await axios.get(`https://qxtrand.onrender.com/api/admin/reward-settings?t=${timestamp}`, {
         headers: {
           'Cache-Control': 'no-cache, no-store, must-revalidate',
           'Pragma': 'no-cache',
@@ -70,7 +70,7 @@ const RewardIncome = () => {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (user && user._id) {
-        const response = await axios.get(`https://qxtrand.onrender.com/api/api/user/reward-status/${user._id}`);
+        const response = await axios.get(`https://qxtrand.onrender.com/api/user/reward-status/${user._id}`);
         if (response.data.success) {
           setUserStatus(response.data.status);
         }

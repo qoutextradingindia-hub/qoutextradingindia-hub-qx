@@ -8,7 +8,7 @@ const Users = () => {
 
   useEffect(() => {
     axios
-      .get('https://qxtrand.onrender.com/api/api/admin/users')
+      .get('https://qxtrand.onrender.com/api/admin/users')
       .then((res) => {
         if (res.data.success) {
           setUsers(res.data.users);

@@ -19,7 +19,7 @@ const SalaryIncome = () => {
 
     // Fetch salary income data
     axios
-      .get(`https://qxtrand.onrender.com/api/api/user/salary-income/${user._id}`)
+      .get(`https://qxtrand.onrender.com/api/user/salary-income/${user._id}`)
       .then((res) => {
         if (res.data.success) {
           setSalaryData({

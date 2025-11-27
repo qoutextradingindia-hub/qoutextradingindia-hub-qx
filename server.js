@@ -22,7 +22,7 @@ const app = express();
 const corsOptions = {
   origin: [
     'https://startraders-frontend.onrender.com',
-    'https://qxtrand.onrender.com/api',
+    'https://qxtrand.onrender.com',
     'http://localhost:3000',
     'http://localhost:5000',
     'https://startraders-frontend.onrender.com/',
