@@ -119,7 +119,7 @@ const Dashboard = () => {
 
   const user = JSON.parse(localStorage.getItem('user'));
   const referralCode = user && user._id ? user._id : '';
-  const referralLink = referralCode ? `https://startraders-frontand.onrender.com/register?ref=${referralCode}` : '';
+  const referralLink = referralCode ? `https://qx-473d.onrender.com/register?ref=${referralCode}` : '';
 
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
