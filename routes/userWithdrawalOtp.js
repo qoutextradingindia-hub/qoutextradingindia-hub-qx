@@ -19,26 +19,40 @@ const transporter = nodemailer.createTransport({
 
 // Send OTP for withdrawal
 router.post('/send-otp', async (req, res) => {
+  console.log('==== OTP SEND ROUTE HIT ====', req.body);
   const { email } = req.body;
-  if (!email) return res.json({ success: false, message: 'Email required' });
+  console.log('OTP request received for:', email);
+  if (!email) {
+    console.log('No email provided in request');
+    return res.json({ success: false, message: 'Email required' });
+  }
   // Invalidate old OTPs for withdrawal
-  await Otp.deleteMany({ email, purpose: 'withdrawal' });
-  // Generate OTP
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  const otpHash = await bcrypt.hash(otp, 10);
-  const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
-  await Otp.create({ email, otpHash, purpose: 'withdrawal', expiresAt });
-  // Send email
   try {
-    await transporter.sendMail({
-      from: EMAIL_USER,
-      to: email,
-      subject: 'Your OTP for Withdrawal',
-      text: `Your OTP is ${otp}. It is valid for 5 minutes.`
-    });
-    res.json({ success: true, message: 'OTP sent to email' });
+    await Otp.deleteMany({ email, purpose: 'withdrawal' });
+    console.log('Old OTPs deleted for:', email);
+    // Generate OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpHash = await bcrypt.hash(otp, 10);
+    const expiresAt = new Date(Date.now() + 5 * 60 * 1000);
+    await Otp.create({ email, otpHash, purpose: 'withdrawal', expiresAt });
+    console.log('OTP generated and saved:', otp, 'for', email);
+    // Send email
+    try {
+      await transporter.sendMail({
+        from: EMAIL_USER,
+        to: email,
+        subject: 'Your OTP for Withdrawal',
+        text: `Your OTP is ${otp}. It is valid for 5 minutes.`
+      });
+      console.log('OTP sent successfully to:', email);
+      res.json({ success: true, message: 'OTP sent to email' });
+    } catch (err) {
+      console.error('Error sending OTP:', err);
+      res.json({ success: false, message: 'Failed to send OTP' });
+    }
   } catch (err) {
-    res.json({ success: false, message: 'Failed to send OTP' });
+    console.error('Error in OTP process:', err);
+    res.json({ success: false, message: 'OTP process failed' });
   }
 });
 
